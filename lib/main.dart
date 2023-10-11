@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travee/screen/onboarding_screen.dart';
+import 'package:travee/screen/onboarding/onboarding_screen.dart';
 
 void main() {
   runApp(const MyApp());
