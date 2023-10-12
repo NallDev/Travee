@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travee/model/onboarding_model.dart';
+import 'package:travee/screen/home/home_screen.dart';
 
 import 'dot_indicator.dart';
 
@@ -88,7 +89,10 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                 height: 72,
                                 width: 111,
                                 child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(builder: (context) => const HomeScreen()));
+                                  },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: contents[i].btnColor,
                                     shape: RoundedRectangleBorder(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:travee/my_flutter_app_icons.dart';
 
+import 'card_content.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -22,7 +24,7 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(400),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color(0xD1F41F4),
+                    color: Color(0x0d1f41f4),
                     blurRadius: 100,
                   ),
                 ],
@@ -39,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(400),
                 boxShadow: const [
                   BoxShadow(
-                    color: Color(0xD1F41F4),
+                    color: Color(0x0d1f41f4),
                     blurRadius: 100,
                   ),
                 ],
@@ -51,25 +53,25 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
                     width: double.infinity,
                     height: 96,
                     decoration: BoxDecoration(
-                      color: Color(0xFFE6E8EC),
+                      color: const Color(0xFFE6E8EC),
                       borderRadius: BorderRadius.circular(32),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(24),
+                      padding: const EdgeInsets.all(24),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
                             flex: 1,
                             child: IconButton(
-                              icon: Icon(
+                              icon: const Icon(
                                 MyFlutterApp.menu,
                                 color: Colors.black,
                               ),
@@ -77,7 +79,8 @@ class HomeScreen extends StatelessWidget {
                                 Fluttertoast.showToast(
                                     msg: "Menu item",
                                     toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.CENTER,
+                                    backgroundColor: const Color(0x4D1E2228),
+                                    textColor: Colors.white,
                                     timeInSecForIosWeb: 1,
                                     fontSize: 16.0);
                               },
@@ -91,16 +94,16 @@ class HomeScreen extends StatelessWidget {
                                 Image.asset(
                                   "images/avatar_2.png",
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 12,
                                 ),
-                                Column(
+                                const Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
                                       "Hello,",
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black87,
@@ -108,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                                     ),
                                     Text(
                                       "Afrinaldi",
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.bold,
                                         color: Colors.black87,
@@ -126,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 IconButton(
-                                  icon: Icon(
+                                  icon: const Icon(
                                     MyFlutterApp.bell,
                                     color: Colors.black,
                                   ),
@@ -134,7 +137,7 @@ class HomeScreen extends StatelessWidget {
                                     Fluttertoast.showToast(
                                         msg: "Notification item",
                                         toastLength: Toast.LENGTH_SHORT,
-                                        backgroundColor: Color(0x4D1E2228),
+                                        backgroundColor: const Color(0x4D1E2228),
                                         textColor: Colors.white,
                                         timeInSecForIosWeb: 1,
                                         fontSize: 16.0);
@@ -147,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(24),
                                     color: Colors.blue,
                                   ),
-                                  child: Center(
+                                  child: const Center(
                                     child: Text(
                                       "3",
                                       style: TextStyle(
@@ -163,64 +166,22 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Expanded(
+                    child: ListView.separated(
+                      itemCount: 10,
+                      separatorBuilder: (BuildContext context, int index) =>
+                          const Divider(),
+                      itemBuilder: (BuildContext context, int index) {
+                        return const CardContent();
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class CardContent extends StatelessWidget {
-  const CardContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Image.asset("images/avatar_1.png"),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Post in",
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black45,
-                    ),
-                  ),
-                  Text(
-                    "Indonesian",
-                    style: const TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ],
-              ),
-              CircleAvatar(
-                backgroundColor: Color(0xFFF4F5F6),
-                child: IconButton(
-                  iconSize: 24.0,
-                  icon: const Icon(
-                    Icons.arrow_right_alt,
-                    color: Colors.black87,
-                  ),
-                  onPressed: () {
-
-                  },
-                ),
-              ),
-            ],
           ),
         ],
       ),
